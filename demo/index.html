@@ -5,6 +5,7 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/ripples.min.css" rel="stylesheet">
         <link href="css/material-wfont.min.css" rel="stylesheet">
+        <link href="css/app.css" rel="stylesheet">
 
     </head>
 
@@ -12,13 +13,76 @@
 
         <!-- Your site -->
 
-        <div class="container-fluid">
-            
+        <div class="container-fluid main-view">
+            <div class="row current-score">
+                <div class="col-lg-6 col-md-6 left-guy">
+                    <div class="current-point">
+                        3
+                    </div>
+                    <div class="name">
+                        IvanP
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 right-guy">
+                    <div class="current-point">
+                        <div class="serve">
+                            SERVING
+                        </div>
+                        9
+                    </div>
+                    <div class="name">
+                        IgorP
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 tip">
+                    A WIN FOR <span class="left-guy">IVANP</span> TAKES HIM TO RANK 3
+                </div>
+            </div>
+            <div class="row stats">
+                <div class="col-lg-12 col-md-12 headline"><h1>STATISTICS</h1></div>
+                <div class="col-lg-4 col-md-4 score-block">
+                    <h2>LAST SCORE</h2>
+                    <div class="score clearfix">
+                        <div class="col-lg-5 col-md-5 points">9</div>
+                        <div class="col-lg-2 col-md-2 points">-</div>
+                        <div class="col-lg-5 col-md-5 points">11</div>
+                        <div class="col-lg-5 col-md-5"><span class="left-guy">IgorP</span></div>
+                        <div class="col-lg-2 col-md-2"></div>
+                        <div class="col-lg-5 col-md-5 right"><span class="right-guy">IvanP</span></div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 score-block">
+                    <h2>HEAD TO HEAD</h2>
+                    <div class="score clearfix">
+                        <div class="col-lg-5 col-md-5 points">22</div>
+                        <div class="col-lg-2 col-md-2 points">-</div>
+                        <div class="col-lg-5 col-md-5 points">23</div>
+                        <div class="col-lg-5 col-md-5"><span class="left-guy">IgorP</span></div>
+                        <div class="col-lg-2 col-md-2"></div>
+                        <div class="col-lg-5 col-md-5 right"><span class="right-guy">IvanP</span></div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 score-block">
+                    <h2>CURRENT RANKING</h2>
+                    <div class="score clearfix">
+                        <div class="col-lg-5 col-md-5 points">3</div>
+                        <div class="col-lg-2 col-md-2 points"></div>
+                        <div class="col-lg-5 col-md-5 points">4</div>
+                        <div class="col-lg-5 col-md-5"><span class="left-guy">IgorP</span></div>
+                        <div class="col-lg-2 col-md-2"></div>
+                        <div class="col-lg-5 col-md-5 right"><span class="right-guy">IvanP</span></div>
+                    </div>
+                </div>
+            </div>
         </div>
-
+        <div class="container-fluid footer">
+            <div class="col-lg-12 col-md-12">
+                <a class="btn btn-primary">RANKINGS</a>
+            </div>
+        </div>
         <!-- Your site ends -->
 
-        <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
 
         <script src="js/ripples.min.js"></script>
