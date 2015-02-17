@@ -44,14 +44,16 @@ html,body {
 .main-view .current-score .tip {
   position: absolute;
   bottom: 0;
+  text-align: center;
   right: 0;
   left: 0;
-  height: 50px;
+  height: 100%;
   line-height: 50px;
-  font-size: 25px;
+  font-size: 85px;
   color: #fff;
   background: rgba(0, 0, 0, 0.5);
 }
+
 .main-view .stats {
   height: 40%;
 }

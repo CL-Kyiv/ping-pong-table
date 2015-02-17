@@ -9,8 +9,9 @@
  */
 angular.module('pingPongTableApp')
   .controller('MainCtrl', function () {
+    var RANKFORWIN = 11;
     this.clearAll = function () {
-      this.player1 = this.player2 = "noname";
+      this.player1 = this.player2 = 'noname';
       this.rank1 = this.rank2 = 0;
     };
     this.clearAll();
@@ -38,11 +39,18 @@ angular.module('pingPongTableApp')
     this.clearLocalStorage = function() {
       localStorage.clear();
     }
+    this.checkRank = function(player) {
+      var rank = player === 'player1' ? this.rank1 : this.rank2;
+      if(rank >= RANKFORWIN) {
+        this.winner = player === 'player1' ? this.player1 : this.player2;;
+      }
+    }
     this.incrementRank = function (player, value) {
       if (player === 'player1') {
         this.rank1 += value;
       } else {
         this.rank2 += value;
       }
+      this.checkRank(player);
     }
   });

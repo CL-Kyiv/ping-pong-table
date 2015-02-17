@@ -35,8 +35,10 @@
         {{main.player2}}
       </div>
     </div>
-    <div class="col-lg-12 col-md-12 tip">
-      A WIN FOR <span class="left-guy">{{main.player1}}</span> TAKES HIM TO RANK 3
+    <div class="col-lg-12 col-md-12 tip" ng-show="main.winner">
+      <span class="winner">
+      A WINNER <span class="left-guy">{{main.winner}}</span>
+      </span>
     </div>
   </div>
   <div class="row">
