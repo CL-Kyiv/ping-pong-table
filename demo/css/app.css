@@ -113,3 +113,35 @@ span.right-guy {
     text-align: center;
     height: 50px;
 }
+@media (max-width: 992px) {
+    .main-view .stats .score-block h2 {
+        font-size: 20px;
+    }
+}
+@media (max-width: 768px) {
+    html,body {
+        height: auto;
+        max-height: 999999999px;
+        overflow: visible;
+    }
+    .main-view .stats .score-block h2 {
+        font-size: 16px;
+    }
+    .main-view .stats .score-block .score {
+        font-size: 16px;
+    }
+    .main-view .stats .score-block .score > *{
+        padding: 0;
+    }
+    .main-view .stats .score-block .score .points {
+        font-size: 22px;
+    }
+    .main-view .current-score {
+        min-height: 430px;
+    }
+
+    .main-view .stats {
+        min-height: 280px;
+    }
+
+}
