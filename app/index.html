@@ -16,61 +16,89 @@
     <!-- endbuild -->
   </head>
   <body ng-app="pingPongTableApp">
-    <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
 
-    <!-- Add your site or application content here -->
-    <div class="header">
-      <div class="navbar navbar-default" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
-
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-
-            <a class="navbar-brand" ui-sref="home" href="#/">pingPongTable</a>
+  <div class="container-fluid main-view">
+    <div class="row current-score">
+      <div class="col-lg-6 col-md-6 left-guy">
+        <div class="current-point">
+          3
+        </div>
+        <div class="name">
+          IvanP
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 right-guy">
+        <div class="current-point">
+          <div class="serve">
+            SERVING
           </div>
-
-          <div class="collapse navbar-collapse" id="js-navbar-collapse">
-
-            <ul class="nav navbar-nav">
-              <li class="active"><a ui-sref="home"  href="#/" ui-sref-active="active" >Home</a></li>
-              <li><a ui-sref="about" ui-sref-active="active"  href="#/">About</a></li>
-              <li><a ng-href="#/">Contact</a></li>
-            </ul>
-          </div>
+          9
+        </div>
+        <div class="name">
+          IgorP
+        </div>
+      </div>
+      <div class="col-lg-12 col-md-12 tip">
+        A WIN FOR <span class="left-guy">IVANP</span> TAKES HIM TO RANK 3
+      </div>
+    </div>
+    <div class="row stats">
+      <div class="col-lg-12 col-md-12 headline"><h1>STATISTICS</h1></div>
+      <div class="col-lg-4 col-md-4 score-block">
+        <h2>LAST SCORE</h2>
+        <div class="score clearfix">
+          <div class="col-lg-5 col-md-5 points">9</div>
+          <div class="col-lg-2 col-md-2 points">-</div>
+          <div class="col-lg-5 col-md-5 points">11</div>
+          <div class="col-lg-5 col-md-5"><span class="left-guy">IgorP</span></div>
+          <div class="col-lg-2 col-md-2"></div>
+          <div class="col-lg-5 col-md-5 right"><span class="right-guy">IvanP</span></div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 score-block">
+        <h2>HEAD TO HEAD</h2>
+        <div class="score clearfix">
+          <div class="col-lg-5 col-md-5 points">22</div>
+          <div class="col-lg-2 col-md-2 points">-</div>
+          <div class="col-lg-5 col-md-5 points">23</div>
+          <div class="col-lg-5 col-md-5"><span class="left-guy">IgorP</span></div>
+          <div class="col-lg-2 col-md-2"></div>
+          <div class="col-lg-5 col-md-5 right"><span class="right-guy">IvanP</span></div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 score-block">
+        <h2>CURRENT RANKING</h2>
+        <div class="score clearfix">
+          <div class="col-lg-5 col-md-5 points">3</div>
+          <div class="col-lg-2 col-md-2 points"></div>
+          <div class="col-lg-5 col-md-5 points">4</div>
+          <div class="col-lg-5 col-md-5"><span class="left-guy">IgorP</span></div>
+          <div class="col-lg-2 col-md-2"></div>
+          <div class="col-lg-5 col-md-5 right"><span class="right-guy">IvanP</span></div>
         </div>
       </div>
     </div>
-
-    <div class="container">
-    <div ui-view=""></div>
+  </div>
+  <div class="container-fluid footer">
+    <div class="col-lg-12 col-md-12">
+      <a class="btn btn-primary">RANKINGS</a>
     </div>
+  </div>
+  <!-- Your site ends -->
 
-    <div class="footer">
-      <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-      </div>
-    </div>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+  <script src="js/ripples.min.js"></script>
+  <script src="js/material.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $.material.init();
+    });
+  </script>
 
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
-       }(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
-    </script>
-
-    <!-- build:js(.) scripts/vendor.js -->
+  <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
