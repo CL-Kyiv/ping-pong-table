@@ -1,3 +1,119 @@
+html,body {
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  background-color: #eee;
+}
+.main-view {
+  text-align: center;
+  height: calc(100% - 50px);
+}
+.main-view .current-score {
+  height: 60%;
+  position: relative;
+  color: #fff
+}
+.main-view .current-score > .left-guy {
+  background: #006064;
+  height: 100%;
+}
+.main-view .current-score > .right-guy {
+  background: #283564;
+  height: 100%;
+}
+.main-view .current-score .current-point{
+  font-size: 160px;
+  position: relative;
+  padding-top: 50px;
+}
+
+.main-view .current-score .current-point .serve{
+  font-size: 22px;
+  position: absolute;
+  right: -15px;
+  left: -15px;
+  top: 0;
+  height: 50px;
+  line-height: 50px;
+  color: #fff;
+  background: #00a835;
+}
+.main-view .current-score .name{
+  font-size: 60px;
+}
+.main-view .current-score .tip {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 50px;
+  line-height: 50px;
+  font-size: 25px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+}
+.main-view .stats {
+  height: 40%;
+}
+.main-view .stats .headline {
+  height: 80px;
+  position: relative;
+}
+.main-view .stats .headline h1 {
+  background-color: #eee;
+  position: relative;
+  z-index: 2001;
+  display: inline-block;
+  padding: 0 15px;
+}
+
+.main-view .stats .headline:after{
+  content: '';
+  height: 2px;
+  position: absolute;
+  top: 39px;
+  display: block;
+  background: #000;
+  width: 100%;
+  margin: 0 -15px;
+  z-index: 2000;
+}
+.main-view .stats .score-block {
+  height: calc(100% - 80px);
+  border-right: 2px solid #000;
+  border-bottom: 2px solid #000;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.main-view .stats .score-block:last-child {
+  border-right: none
+}
+.main-view .stats .score-block h2 {
+  margin-bottom: 30px;
+}
+.main-view .stats .score-block .score {
+  max-width: 350px;
+  margin: 0 auto;
+  font-size: 26px;
+}
+.main-view .stats .score-block .score .points {
+  font-size: 46px;
+  margin-bottom: 15px;
+}
+.main-view .stats .score-block .score .name {
+}
+span.left-guy {
+  color: #006064
+}
+span.right-guy {
+  color: #283564
+}
+.footer {
+  text-align: center;
+  height: 50px;
+}
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
