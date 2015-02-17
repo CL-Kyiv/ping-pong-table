@@ -1,143 +1,164 @@
 <!doctype html>
 <html class="no-js">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
-    <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-  </head>
-  <body ng-app="pingPongTableApp">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+</head>
+<body ng-app="pingPongTableApp">
 
-  <div class="container-fluid main-view" ng-controller="MainCtrl as main">
-    <div class="row current-score">
-      <div class="col-lg-6 col-md-6 left-guy">
-        <div class="current-point">
-          {{main.rank1}}
-        </div>
-        <div class="name">
-          {{main.player1}}
-        </div>
+<div class="container-fluid main-view" ng-controller="MainCtrl as main">
+  <div class="row current-score">
+    <div class="col-lg-6 col-md-6 left-guy">
+      <div class="current-point">
+        {{main.rank1}}
       </div>
-      <div class="col-lg-6 col-md-6 right-guy">
-        <div class="current-point">
-          {{main.rank2}}
-        </div>
-        <div class="name">
-          {{main.player2}}
-        </div>
-      </div>
-      <div class="col-lg-12 col-md-12 tip">
-        A WIN FOR <span class="left-guy">{{main.player1}}</span> TAKES HIM TO RANK 3
+      <div class="name">
+        {{main.player1}}
       </div>
     </div>
-    <div class="row">
-      <div class="col-lg-12 col-md-12 headline"><h1>Control panel</h1></div>
-      <div class="col-lg-4 col-md-4 score-block">
-        <h2>LEFT PLAYER</h2>
-        <div class="clearfix">
+    <div class="col-lg-6 col-md-6 right-guy">
+      <div class="current-point">
+        {{main.rank2}}
+      </div>
+      <div class="name">
+        {{main.player2}}
+      </div>
+    </div>
+    <div class="col-lg-12 col-md-12 tip">
+      A WIN FOR <span class="left-guy">{{main.player1}}</span> TAKES HIM TO RANK 3
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12 col-md-12 headline"><h1>Control panel</h1></div>
+    <div class="col-lg-4 col-md-4 score-block">
+      <h2>LEFT PLAYER</h2>
+
+      <div class="clearfix">
+        <div class="col-lg-12">
           <input type="text" ng-model="main.player1">
+          <input type="button" class="btn" value="SAVE" ng-click="main.save('player1')">
+          <input type="button" class="btn" value="LOAD" ng-click="main.load('player1')" ng-disabled="!main.hasSaved('player1')">
         </div>
-        <div class="score clearfix">
-          <div class="col-lg-5 col-md-5">
-            <input type="button" value="-1" class="btn btn-lg" ng-click="main.incrementRank('player1', -1)">
-          </div>
-          <div class="col-lg-2 col-md-2">-</div>
-          <div class="col-lg-5 col-md-5">
-            <input type="button" value="+1" class="btn btn-lg" ng-click="main.incrementRank('player1', +1)">
-          </div>
-        </div>
+
       </div>
-      <div class="col-lg-4 col-md-4 score-block">
-        <h2>COMMON </h2>
-        <div class="score clearfix">
-          <div class="col-lg-12 col-md-12"><input type="button" value="CLEAR ALL" ng-click="main.clearAll()" class="btn btn-lg"></div>
+      <div class="score clearfix">
+        <div class="col-lg-5 col-md-5">
+          <input type="button" value="-1" class="btn" ng-click="main.incrementRank('player1', -1)">
         </div>
-      </div>
-      <div class="col-lg-4 col-md-4 score-block">
-        <h2>RIGHT PLAYER</h2>
-        <div class="clearfix">
-          <input type="text" ng-model="main.player2">
-        </div>
-        <div class="score clearfix">
-          <div class="col-lg-5 col-md-5"><input type="button" value="-1" class="btn btn-lg" ng-click="main.incrementRank('player2', -1)"></div>
-          <div class="col-lg-2 col-md-2">-</div>
-          <div class="col-lg-5 col-md-5"><input type="button" value="+1" class="btn btn-lg" ng-click="main.incrementRank('player2', +1)"></div>
+        <div class="col-lg-2 col-md-2">-</div>
+        <div class="col-lg-5 col-md-5">
+          <input type="button" value="+1" class="btn" ng-click="main.incrementRank('player1', +1)">
         </div>
       </div>
     </div>
+    <div class="col-lg-4 col-md-4 score-block">
+      <h2>COMMON </h2>
 
-    <div class="row stats">
-      <div class="col-lg-12 col-md-12 headline"><h1>STATISTICS</h1></div>
-      <div class="col-lg-4 col-md-4 score-block">
-        <h2>LAST SCORE</h2>
-        <div class="score clearfix">
-          <div class="col-lg-5 col-md-5 points">9</div>
-          <div class="col-lg-2 col-md-2 points">-</div>
-          <div class="col-lg-5 col-md-5 points">11</div>
-          <div class="col-lg-5 col-md-5"><span class="left-guy">{{main.player1}}</span></div>
-          <div class="col-lg-2 col-md-2"></div>
-          <div class="col-lg-5 col-md-5 right"><span class="right-guy">{{main.player2}}</span></div>
+      <div class="score clearfix">
+        <div class="col-lg-12 col-md-12">
+          <input type="button" value="CLEAR ALL" ng-click="main.clearAll()" class="btn">
+        </div>
+        <div class="col-lg-12 col-md-12">
+          <input type="button" value="CLEAR LOCAL STORAGE" ng-click="main.clearLocalStorage()" class="btn">
         </div>
       </div>
-      <div class="col-lg-4 col-md-4 score-block">
-        <h2>HEAD TO HEAD</h2>
-        <div class="score clearfix">
-          <div class="col-lg-5 col-md-5 points">22</div>
-          <div class="col-lg-2 col-md-2 points">-</div>
-          <div class="col-lg-5 col-md-5 points">23</div>
-          <div class="col-lg-5 col-md-5"><span class="left-guy">{{main.player1}}</span></div>
-          <div class="col-lg-2 col-md-2"></div>
-          <div class="col-lg-5 col-md-5 right"><span class="right-guy">{{main.player2}}</span></div>
-        </div>
+    </div>
+    <div class="col-lg-4 col-md-4 score-block">
+      <h2>RIGHT PLAYER</h2>
+
+      <div class="clearfix">
+        <input type="text" ng-model="main.player2">
+        <input type="button" class="btn" value="SAVE" ng-click="main.save('player2')">
+        <input type="button" class="btn" value="LOAD" ng-click="main.load('player2')" ng-disabled="!main.hasSaved('player2')">
       </div>
-      <div class="col-lg-4 col-md-4 score-block">
-        <h2>CURRENT RANKING</h2>
-        <div class="score clearfix">
-          <div class="col-lg-5 col-md-5 points">3</div>
-          <div class="col-lg-2 col-md-2 points"></div>
-          <div class="col-lg-5 col-md-5 points">4</div>
-          <div class="col-lg-5 col-md-5"><span class="left-guy">{{main.player1}}</span></div>
-          <div class="col-lg-2 col-md-2"></div>
-          <div class="col-lg-5 col-md-5 right"><span class="right-guy">{{main.player2}}</span></div>
-        </div>
+      <div class="score clearfix">
+        <div class="col-lg-5 col-md-5">
+          <input type="button" value="-1" class="btn" ng-click="main.incrementRank('player2', -1)"></div>
+        <div class="col-lg-2 col-md-2">-</div>
+        <div class="col-lg-5 col-md-5">
+          <input type="button" value="+1" class="btn" ng-click="main.incrementRank('player2', +1)"></div>
       </div>
     </div>
   </div>
-  <div class="container-fluid footer">
-    <div class="col-lg-12 col-md-12">
-      <a class="btn btn-primary">RANKINGS</a>
+
+  <div class="row stats">
+    <div class="col-lg-12 col-md-12 headline"><h1>STATISTICS</h1></div>
+    <div class="col-lg-4 col-md-4 score-block">
+      <h2>LAST SCORE</h2>
+
+      <div class="score clearfix">
+        <div class="col-lg-5 col-md-5 points">9</div>
+        <div class="col-lg-2 col-md-2 points">-</div>
+        <div class="col-lg-5 col-md-5 points">11</div>
+        <div class="col-lg-5 col-md-5"><span class="left-guy">{{main.player1}}</span></div>
+        <div class="col-lg-2 col-md-2"></div>
+        <div class="col-lg-5 col-md-5 right"><span class="right-guy">{{main.player2}}</span></div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4 score-block">
+      <h2>HEAD TO HEAD</h2>
+
+      <div class="score clearfix">
+        <div class="col-lg-5 col-md-5 points">22</div>
+        <div class="col-lg-2 col-md-2 points">-</div>
+        <div class="col-lg-5 col-md-5 points">23</div>
+        <div class="col-lg-5 col-md-5"><span class="left-guy">{{main.player1}}</span></div>
+        <div class="col-lg-2 col-md-2"></div>
+        <div class="col-lg-5 col-md-5 right"><span class="right-guy">{{main.player2}}</span></div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4 score-block">
+      <h2>CURRENT RANKING</h2>
+
+      <div class="score clearfix">
+        <div class="col-lg-5 col-md-5 points">3</div>
+        <div class="col-lg-2 col-md-2 points"></div>
+        <div class="col-lg-5 col-md-5 points">4</div>
+        <div class="col-lg-5 col-md-5"><span class="left-guy">{{main.player1}}</span></div>
+        <div class="col-lg-2 col-md-2"></div>
+        <div class="col-lg-5 col-md-5 right"><span class="right-guy">{{main.player2}}</span></div>
+      </div>
     </div>
   </div>
-  <!-- Your site ends -->
+</div>
+<div class="container-fluid footer">
+  <div class="col-lg-12 col-md-12">
+    <a class="btn btn-primary">RANKINGS</a>
+  </div>
+</div>
+<!-- Your site ends -->
 
-  <!-- build:js(.) scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-touch/angular-touch.js"></script>
-    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-touch/angular-touch.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/lodash/lodash.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
-        <!-- endbuild -->
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<script src="scripts/controllers/main.js"></script>
+<script src="scripts/controllers/about.js"></script>
+<!-- endbuild -->
 </body>
 </html>
