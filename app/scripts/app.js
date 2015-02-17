@@ -16,18 +16,19 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ui.router'
+    'ui.router',
+    'templates-main'
   ])
   .config(function ($urlRouterProvider, $stateProvider) {
     $stateProvider
       .state('home', {
         url: '/home',
-        templateUrl: 'views/main.html',
+        templateUrl: '../views/main.tpl.html',
         controller: 'MainCtrl'
       })
       .state('about', {
         url: '/about',
-        templateUrl: 'views/about.html',
+        templateUrl: '../views/about.tpl.html',
         controller: 'AboutCtrl'
       });
     $urlRouterProvider.otherwise('/home');
