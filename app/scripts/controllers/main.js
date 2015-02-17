@@ -8,10 +8,7 @@
  * Controller of the pingPongTableApp
  */
 angular.module('pingPongTableApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function () {
+    this.player1 = 'IvanP';
+    this.player2 = 'IgorP';
   });
