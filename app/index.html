@@ -17,7 +17,7 @@
   </head>
   <body ng-app="pingPongTableApp">
 
-  <div class="container-fluid main-view">
+  <div class="container-fluid main-view" ng-controller="MainCtrl as main">
     <div class="row current-score">
       <div class="col-lg-6 col-md-6 left-guy">
         <div class="current-point">
@@ -50,9 +50,9 @@
           <div class="col-lg-5 col-md-5 points">9</div>
           <div class="col-lg-2 col-md-2 points">-</div>
           <div class="col-lg-5 col-md-5 points">11</div>
-          <div class="col-lg-5 col-md-5"><span class="left-guy">IgorP</span></div>
+          <div class="col-lg-5 col-md-5"><span class="left-guy">{{main.player1}}</span></div>
           <div class="col-lg-2 col-md-2"></div>
-          <div class="col-lg-5 col-md-5 right"><span class="right-guy">IvanP</span></div>
+          <div class="col-lg-5 col-md-5 right"><span class="right-guy">{{main.player2}}</span></div>
         </div>
       </div>
       <div class="col-lg-4 col-md-4 score-block">
@@ -61,9 +61,9 @@
           <div class="col-lg-5 col-md-5 points">22</div>
           <div class="col-lg-2 col-md-2 points">-</div>
           <div class="col-lg-5 col-md-5 points">23</div>
-          <div class="col-lg-5 col-md-5"><span class="left-guy">IgorP</span></div>
+          <div class="col-lg-5 col-md-5"><span class="left-guy">{{main.player1}}</span></div>
           <div class="col-lg-2 col-md-2"></div>
-          <div class="col-lg-5 col-md-5 right"><span class="right-guy">IvanP</span></div>
+          <div class="col-lg-5 col-md-5 right"><span class="right-guy">{{main.player2}}</span></div>
         </div>
       </div>
       <div class="col-lg-4 col-md-4 score-block">
@@ -72,9 +72,9 @@
           <div class="col-lg-5 col-md-5 points">3</div>
           <div class="col-lg-2 col-md-2 points"></div>
           <div class="col-lg-5 col-md-5 points">4</div>
-          <div class="col-lg-5 col-md-5"><span class="left-guy">IgorP</span></div>
+          <div class="col-lg-5 col-md-5"><span class="left-guy">{{main.player1}}</span></div>
           <div class="col-lg-2 col-md-2"></div>
-          <div class="col-lg-5 col-md-5 right"><span class="right-guy">IvanP</span></div>
+          <div class="col-lg-5 col-md-5 right"><span class="right-guy">{{main.player2}}</span></div>
         </div>
       </div>
     </div>
@@ -85,18 +85,6 @@
     </div>
   </div>
   <!-- Your site ends -->
-
-  <script src="js/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-
-  <script src="js/ripples.min.js"></script>
-  <script src="js/material.min.js"></script>
-  <script>
-    $(document).ready(function() {
-      $.material.init();
-    });
-  </script>
-
 
   <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
