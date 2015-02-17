@@ -21,27 +21,60 @@
     <div class="row current-score">
       <div class="col-lg-6 col-md-6 left-guy">
         <div class="current-point">
-          3
+          {{main.rank1}}
         </div>
         <div class="name">
-          IvanP
+          {{main.player1}}
         </div>
       </div>
       <div class="col-lg-6 col-md-6 right-guy">
         <div class="current-point">
-          <div class="serve">
-            SERVING
-          </div>
-          9
+          {{main.rank2}}
         </div>
         <div class="name">
-          IgorP
+          {{main.player2}}
         </div>
       </div>
       <div class="col-lg-12 col-md-12 tip">
-        A WIN FOR <span class="left-guy">IVANP</span> TAKES HIM TO RANK 3
+        A WIN FOR <span class="left-guy">{{main.player1}}</span> TAKES HIM TO RANK 3
       </div>
     </div>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 headline"><h1>Control panel</h1></div>
+      <div class="col-lg-4 col-md-4 score-block">
+        <h2>LEFT PLAYER</h2>
+        <div class="clearfix">
+          <input type="text" ng-model="main.player1">
+        </div>
+        <div class="score clearfix">
+          <div class="col-lg-5 col-md-5">
+            <input type="button" value="-1" class="btn btn-lg" ng-click="main.incrementRank('player1', -1)">
+          </div>
+          <div class="col-lg-2 col-md-2">-</div>
+          <div class="col-lg-5 col-md-5">
+            <input type="button" value="+1" class="btn btn-lg" ng-click="main.incrementRank('player1', +1)">
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 score-block">
+        <h2>COMMON </h2>
+        <div class="score clearfix">
+          <div class="col-lg-12 col-md-12"><input type="button" value="CLEAR ALL" ng-click="main.clearAll()" class="btn btn-lg"></div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 score-block">
+        <h2>RIGHT PLAYER</h2>
+        <div class="clearfix">
+          <input type="text" ng-model="main.player2">
+        </div>
+        <div class="score clearfix">
+          <div class="col-lg-5 col-md-5"><input type="button" value="-1" class="btn btn-lg" ng-click="main.incrementRank('player2', -1)"></div>
+          <div class="col-lg-2 col-md-2">-</div>
+          <div class="col-lg-5 col-md-5"><input type="button" value="+1" class="btn btn-lg" ng-click="main.incrementRank('player2', +1)"></div>
+        </div>
+      </div>
+    </div>
+
     <div class="row stats">
       <div class="col-lg-12 col-md-12 headline"><h1>STATISTICS</h1></div>
       <div class="col-lg-4 col-md-4 score-block">
