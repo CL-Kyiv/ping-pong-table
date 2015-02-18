@@ -22,6 +22,17 @@ module.exports = function (grunt) {
   };
   // Define the configuration for all the tasks
   grunt.initConfig({
+    less: {
+      development: {
+        files: {"<%= yeoman.app %>/styles/main.css": "<%= yeoman.app %>/styles/*.less"}
+      },
+      production: {
+        options: {
+          cleancss: true
+        },
+        files: {"<%= yeoman.app %>/styles/main.css": "<%= yeoman.app %>/styles/*.less"}
+      }
+    },
     html2js: {
       options: {
         // custom options, see below
@@ -53,7 +64,14 @@ module.exports = function (grunt) {
       },
       styles: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
-        tasks: ['newer:copy:styles', 'autoprefixer']
+        tasks: ['autoprefixer'],
+        options: {
+          livereload: '<%= connect.options.livereload %>'
+        }
+      },
+      less: {
+        files: ['<%= yeoman.app %>/styles/{,*/}*.less'],
+        tasks: ['less:development']
       },
       gruntfile: {
         files: ['Gruntfile.js']
@@ -374,9 +392,6 @@ module.exports = function (grunt) {
 
     // Run some tasks in parallel to speed up the build process
     concurrent: {
-      server: [
-        'copy:styles'
-      ],
       test: [
         'copy:styles'
       ],
@@ -405,7 +420,6 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'wiredep',
-      'concurrent:server',
       'autoprefixer:server',
       'connect:livereload',
       'watch'
