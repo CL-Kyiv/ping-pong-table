@@ -33,42 +33,42 @@ angular.module("../app/views/main.tpl.html", []).run(["$templateCache", function
     "      A WIN FOR <span class=\"left-guy\">IVANP</span> TAKES HIM TO RANK 3\n" +
     "    </div>\n" +
     "  </div>\n" +
-    "  <div class=\"row stats\">\n" +
-    "    <div class=\"col-lg-12 col-md-12 headline\"><h1>STATISTICS</h1></div>\n" +
-    "    <div class=\"col-lg-4 col-md-4 score-block\">\n" +
-    "      <h2>LAST SCORE</h2>\n" +
-    "      <div class=\"score clearfix\">\n" +
-    "        <div class=\"col-lg-5 col-md-5 points\">9</div>\n" +
-    "        <div class=\"col-lg-2 col-md-2 points\">-</div>\n" +
-    "        <div class=\"col-lg-5 col-md-5 points\">11</div>\n" +
-    "        <div class=\"col-lg-5 col-md-5\"><span class=\"left-guy\">IgorP</span></div>\n" +
-    "        <div class=\"col-lg-2 col-md-2\"></div>\n" +
-    "        <div class=\"col-lg-5 col-md-5 right\"><span class=\"right-guy\">IvanP</span></div>\n" +
-    "      </div>\n" +
-    "    </div>\n" +
-    "    <div class=\"col-lg-4 col-md-4 score-block\">\n" +
-    "      <h2>HEAD TO HEAD</h2>\n" +
-    "      <div class=\"score clearfix\">\n" +
-    "        <div class=\"col-lg-5 col-md-5 points\">22</div>\n" +
-    "        <div class=\"col-lg-2 col-md-2 points\">-</div>\n" +
-    "        <div class=\"col-lg-5 col-md-5 points\">23</div>\n" +
-    "        <div class=\"col-lg-5 col-md-5\"><span class=\"left-guy\">IgorP</span></div>\n" +
-    "        <div class=\"col-lg-2 col-md-2\"></div>\n" +
-    "        <div class=\"col-lg-5 col-md-5 right\"><span class=\"right-guy\">IvanP</span></div>\n" +
-    "      </div>\n" +
-    "    </div>\n" +
-    "    <div class=\"col-lg-4 col-md-4 score-block\">\n" +
-    "      <h2>CURRENT RANKING</h2>\n" +
-    "      <div class=\"score clearfix\">\n" +
-    "        <div class=\"col-lg-5 col-md-5 points\">3</div>\n" +
-    "        <div class=\"col-lg-2 col-md-2 points\"></div>\n" +
-    "        <div class=\"col-lg-5 col-md-5 points\">4</div>\n" +
-    "        <div class=\"col-lg-5 col-md-5\"><span class=\"left-guy\">IgorP</span></div>\n" +
-    "        <div class=\"col-lg-2 col-md-2\"></div>\n" +
-    "        <div class=\"col-lg-5 col-md-5 right\"><span class=\"right-guy\">IvanP</span></div>\n" +
-    "      </div>\n" +
-    "    </div>\n" +
-    "  </div>\n" +
+    "  <!--<div class=\"row stats\">-->\n" +
+    "    <!--<div class=\"col-lg-12 col-md-12 headline\"><h1>STATISTICS</h1></div>-->\n" +
+    "    <!--<div class=\"col-lg-4 col-md-4 score-block\">-->\n" +
+    "      <!--<h2>LAST SCORE</h2>-->\n" +
+    "      <!--<div class=\"score clearfix\">-->\n" +
+    "        <!--<div class=\"col-lg-5 col-md-5 points\">9</div>-->\n" +
+    "        <!--<div class=\"col-lg-2 col-md-2 points\">-</div>-->\n" +
+    "        <!--<div class=\"col-lg-5 col-md-5 points\">11</div>-->\n" +
+    "        <!--<div class=\"col-lg-5 col-md-5\"><span class=\"left-guy\">IgorP</span></div>-->\n" +
+    "        <!--<div class=\"col-lg-2 col-md-2\"></div>-->\n" +
+    "        <!--<div class=\"col-lg-5 col-md-5 right\"><span class=\"right-guy\">IvanP</span></div>-->\n" +
+    "      <!--</div>-->\n" +
+    "    <!--</div>-->\n" +
+    "    <!--<div class=\"col-lg-4 col-md-4 score-block\">-->\n" +
+    "      <!--<h2>HEAD TO HEAD</h2>-->\n" +
+    "      <!--<div class=\"score clearfix\">-->\n" +
+    "        <!--<div class=\"col-lg-5 col-md-5 points\">22</div>-->\n" +
+    "        <!--<div class=\"col-lg-2 col-md-2 points\">-</div>-->\n" +
+    "        <!--<div class=\"col-lg-5 col-md-5 points\">23</div>-->\n" +
+    "        <!--<div class=\"col-lg-5 col-md-5\"><span class=\"left-guy\">IgorP</span></div>-->\n" +
+    "        <!--<div class=\"col-lg-2 col-md-2\"></div>-->\n" +
+    "        <!--<div class=\"col-lg-5 col-md-5 right\"><span class=\"right-guy\">IvanP</span></div>-->\n" +
+    "      <!--</div>-->\n" +
+    "    <!--</div>-->\n" +
+    "    <!--<div class=\"col-lg-4 col-md-4 score-block\">-->\n" +
+    "      <!--<h2>CURRENT RANKING</h2>-->\n" +
+    "      <!--<div class=\"score clearfix\">-->\n" +
+    "        <!--<div class=\"col-lg-5 col-md-5 points\">3</div>-->\n" +
+    "        <!--<div class=\"col-lg-2 col-md-2 points\"></div>-->\n" +
+    "        <!--<div class=\"col-lg-5 col-md-5 points\">4</div>-->\n" +
+    "        <!--<div class=\"col-lg-5 col-md-5\"><span class=\"left-guy\">IgorP</span></div>-->\n" +
+    "        <!--<div class=\"col-lg-2 col-md-2\"></div>-->\n" +
+    "        <!--<div class=\"col-lg-5 col-md-5 right\"><span class=\"right-guy\">IvanP</span></div>-->\n" +
+    "      <!--</div>-->\n" +
+    "    <!--</div>-->\n" +
+    "  <!--</div>-->\n" +
     "</div>\n" +
     "");
 }]);

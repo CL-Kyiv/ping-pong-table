@@ -8,41 +8,64 @@
  * Controller of the pingPongTableApp
  */
 angular.module('pingPongTableApp')
-  .controller('MainCtrl', function () {
-    this.clearAll = function () {
-      this.player1 = this.player2 = "noname";
-      this.rank1 = this.rank2 = 0;
+  .controller('MainCtrl', function ($scope, gameTypes, GameService) {
+    $scope.player1 = 'IgorP';
+    $scope.player2 = 'IvanP';
+    $scope.rank1 = $scope.rank2 = 0;
+
+    $scope.gameTypes = gameTypes;
+    $scope.readyToStart = false;
+    $scope.gameIsStarted = false;
+    $scope.selectedGameType = _.first(gameTypes).value;
+    $scope.firstPlayer = $scope.player1;
+    $scope.$watch(function () {
+      return $scope.player1 !== '' && $scope.player2 !== '';
+    }, function (newVal) {
+      $scope.readyToStart = newVal;
+    });
+    $scope.startGame = function () {
+      var gameParams = {
+        gameType: $scope.selectedGameType,
+        players: [$scope.player1, $scope.player2],
+        firstPlayer: $scope.firstPlayer
+      }
+      GameService.startGame(gameParams);
+      $scope.gameIsStarted = true;
+      $scope.currentTurn = $scope.firstPlayer;
+    }
+    $scope.clearAll = function () {
+      $scope.player1 = $scope.player2 = 'noname';
+      $scope.rank1 = $scope.rank2 = 0;
     };
-    this.clearAll();
-    this.save = function (player) {
-      var playerState = {};
-      playerState.name = player === 'player1' ? this.player1 : this.player2;
-      playerState.rank = player === 'player1' ? this.rank1 : this.rank2;
-      playerState = JSON.stringify(playerState);
-      localStorage.setItem(player, playerState);
-    }
-    this.load = function (player) {
-      var loadedState = localStorage.getItem(player);
-      loadedState = JSON.parse(loadedState);
-      if (player === 'player1') {
-        this.player1 = loadedState.name;
-        this.rank1 = loadedState.rank;
-      } else {
-        this.player2 = loadedState.name;
-        this.rank2 = loadedState.rank;
-      }
-    }
-    this.hasSaved = function (player) {
-      return _.indexOf(_.keys(localStorage), player) > -1;
-    }
-    this.clearLocalStorage = function() {
-      localStorage.clear();
-    }
-    this.incrementRank = function (player, value) {
-      if (player === 'player1') {
-        this.rank1 += value;
-      } else {
-        this.rank2 += value;
-      }
-    }
+    //$scope.save = function (player) {
+    //  var playerState = {};
+    //  playerState.name = player === 'player1' ? $scope.player1 : $scope.player2;
+    //  playerState.rank = player === 'player1' ? $scope.rank1 : $scope.rank2;
+    //  playerState = JSON.stringify(playerState);
+    //  localStorage.setItem(player, playerState);
+    //}
+    //$scope.load = function (player) {
+    //  var loadedState = localStorage.getItem(player);
+    //  loadedState = JSON.parse(loadedState);
+    //  if (player === 'player1') {
+    //    $scope.player1 = loadedState.name;
+    //    $scope.rank1 = loadedState.rank;
+    //  } else {
+    //    $scope.player2 = loadedState.name;
+    //    $scope.rank2 = loadedState.rank;
+    //  }
+    //}
+    //$scope.hasSaved = function (player) {
+    //  return _.indexOf(_.keys(localStorage), player) > -1;
+    //}
+    //$scope.clearLocalStorage = function () {
+    //  localStorage.clear();
+    //}
+    //$scope.incrementRank = function (player, value) {
+    //  if (player === 'player1') {
+    //    $scope.rank1 += value;
+    //  } else {
+    //    $scope.rank2 += value;
+    //  }
+    //}
   });
