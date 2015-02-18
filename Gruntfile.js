@@ -33,12 +33,22 @@ module.exports = function (grunt) {
     },
     // Project settings
     yeoman: appConfig,
-
+    less: {
+      development: {
+        files: {"app/styles/main.css": "app/styles/*.less"}
+      },
+      production: {
+        options: {
+          cleancss: true
+        },
+        files: {"app/styles/main.css": "app/styles/*.less"}
+      }
+    },
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       bower: {
         files: ['bower.json'],
-        tasks: ['wiredep']
+        tasks: ['wiredep', 'less']
       },
       js: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
@@ -52,7 +62,10 @@ module.exports = function (grunt) {
         tasks: ['newer:jshint:test', 'karma']
       },
       styles: {
-        files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
+        files: ['<%= yeoman.app %>/styles/{,*/}*.less'],
+        options: {
+          livereload: '<%= connect.options.livereload %>'
+        },
         tasks: ['newer:copy:styles', 'autoprefixer']
       },
       gruntfile: {
@@ -64,7 +77,7 @@ module.exports = function (grunt) {
         },
         files: [
           '<%= yeoman.app %>/{,*/}*.html',
-          '.tmp/styles/{,*/}*.css',
+          '.tmp/styles/{,*/}*.less',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       }
@@ -359,6 +372,11 @@ module.exports = function (grunt) {
           src: ['generated/*']
         }, {
           expand: true,
+          cwd: 'bower_components/bootstrap-material-design/dist',
+          src: 'fonts/*',
+          dest: '<%= yeoman.dist %>'
+        }, {
+          expand: true,
           cwd: 'bower_components/bootstrap/dist',
           src: 'fonts/*',
           dest: '<%= yeoman.dist %>'
@@ -396,6 +414,8 @@ module.exports = function (grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.registerTask('default', ['less']);
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
