@@ -20,10 +20,28 @@ module.exports = function (grunt) {
     app: require('./bower.json').appPath || 'app',
     dist: 'dist'
   };
-
   // Define the configuration for all the tasks
   grunt.initConfig({
-
+    less: {
+      development: {
+        files: {"<%= yeoman.app %>/styles/main.css": "<%= yeoman.app %>/styles/*.less"}
+      },
+      production: {
+        options: {
+          cleancss: true
+        },
+        files: {"<%= yeoman.app %>/styles/main.css": "<%= yeoman.app %>/styles/*.less"}
+      }
+    },
+    html2js: {
+      options: {
+        // custom options, see below
+      },
+      main: {
+        src: ['app/views/**/*.tpl.html'],
+        dest: 'app/scripts/templates.js'
+      }
+    },
     // Project settings
     yeoman: appConfig,
 
@@ -35,7 +53,7 @@ module.exports = function (grunt) {
       },
       js: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
-        tasks: ['newer:jshint:all'],
+        tasks: [],
         options: {
           livereload: '<%= connect.options.livereload %>'
         }
@@ -46,7 +64,14 @@ module.exports = function (grunt) {
       },
       styles: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
-        tasks: ['newer:copy:styles', 'autoprefixer']
+        tasks: ['autoprefixer'],
+        options: {
+          livereload: '<%= connect.options.livereload %>'
+        }
+      },
+      less: {
+        files: ['<%= yeoman.app %>/styles/{,*/}*.less'],
+        tasks: ['less:development']
       },
       gruntfile: {
         files: ['Gruntfile.js']
@@ -156,7 +181,7 @@ module.exports = function (grunt) {
       },
       server: {
         options: {
-          map: true,
+          map: true
         },
         files: [{
           expand: true,
@@ -179,23 +204,23 @@ module.exports = function (grunt) {
     wiredep: {
       app: {
         src: ['<%= yeoman.app %>/index.html'],
-        ignorePath:  /\.\.\//
+        ignorePath: /\.\.\//
       },
       test: {
         devDependencies: true,
         src: '<%= karma.unit.configFile %>',
-        ignorePath:  /\.\.\//,
-        fileTypes:{
+        ignorePath: /\.\.\//,
+        fileTypes: {
           js: {
             block: /(([\s\t]*)\/{2}\s*?bower:\s*?(\S*))(\n|\r|.)*?(\/{2}\s*endbower)/gi,
-              detect: {
-                js: /'(.*\.js)'/gi
-              },
-              replace: {
-                js: '\'{{filePath}}\','
-              }
+            detect: {
+              js: /'(.*\.js)'/gi
+            },
+            replace: {
+              js: '\'{{filePath}}\','
             }
           }
+        }
       }
     },
 
@@ -367,9 +392,6 @@ module.exports = function (grunt) {
 
     // Run some tasks in parallel to speed up the build process
     concurrent: {
-      server: [
-        'copy:styles'
-      ],
       test: [
         'copy:styles'
       ],
@@ -398,7 +420,6 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'wiredep',
-      'concurrent:server',
       'autoprefixer:server',
       'connect:livereload',
       'watch'
@@ -421,6 +442,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'html2js',
     'wiredep',
     'useminPrepare',
     'concurrent:dist',
