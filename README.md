@@ -1,9 +1,6 @@
-# ping-pong-table
+# Smart Ping-Pong table
 
-
-Demo: http://compatibl-kyiv.github.io/ping-pong-table/demo/
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.11.1.
+Demo is available [here](http://compatibl-kyiv.github.io/ping-pong-table/demo/)
 
 ## Build & development
 
