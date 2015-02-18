@@ -28,6 +28,12 @@ angular.module('pingPongTableApp')
         gameType: $scope.selectedGameType,
         players: [$scope.player1, $scope.player2],
         firstPlayer: $scope.firstPlayer
+    this.checkRank = function(player) {
+      var rank = player === 'player1' ? this.rank1 : this.rank2;
+      if(rank >= RANKFORWIN) {
+        this.winner = player === 'player1' ? this.player1 : this.player2;;
+      }
+    }
       }
       GameService.startGame(gameParams);
       $scope.gameIsStarted = true;

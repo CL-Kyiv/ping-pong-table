@@ -1,5 +1,7 @@
-html,
-body {
+html,body {
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
   background-color: #eee;
 }
 .main-view {
@@ -9,15 +11,23 @@ body {
 .main-view .current-score {
   height: 60%;
   position: relative;
-  color: #fff;
-  min-height: 400px;
+  color: #fff
 }
-.main-view .current-score .current-point {
+.main-view .current-score > .left-guy {
+  background: #006064;
+  height: 100%;
+}
+.main-view .current-score > .right-guy {
+  background: #283564;
+  height: 100%;
+}
+.main-view .current-score .current-point{
   font-size: 160px;
   position: relative;
   padding-top: 50px;
 }
-.main-view .current-score .current-point .serve {
+
+.main-view .current-score .current-point .serve{
   font-size: 22px;
   position: absolute;
   right: -15px;
@@ -28,28 +38,22 @@ body {
   color: #fff;
   background: #00a835;
 }
-.main-view .current-score > .left-guy {
-  background: #006064;
-  height: 100%;
-}
-.main-view .current-score > .right-guy {
-  background: #283564;
-  height: 100%;
-}
-.main-view .current-score .name {
+.main-view .current-score .name{
   font-size: 60px;
 }
 .main-view .current-score .tip {
   position: absolute;
   bottom: 0;
+  text-align: center;
   right: 0;
   left: 0;
-  height: 50px;
+  height: 100%;
   line-height: 50px;
-  font-size: 25px;
+  font-size: 85px;
   color: #fff;
   background: rgba(0, 0, 0, 0.5);
 }
+
 .main-view .stats {
   height: 40%;
 }
@@ -64,7 +68,8 @@ body {
   display: inline-block;
   padding: 0 15px;
 }
-.main-view .stats .headline:after {
+
+.main-view .stats .headline:after{
   content: '';
   height: 2px;
   position: absolute;
@@ -84,7 +89,7 @@ body {
   box-sizing: border-box;
 }
 .main-view .stats .score-block:last-child {
-  border-right: none;
+  border-right: none
 }
 .main-view .stats .score-block h2 {
   margin-bottom: 30px;
@@ -98,25 +103,30 @@ body {
   font-size: 46px;
   margin-bottom: 15px;
 }
-div.disable {
-  opacity: 0.5;
+.main-view .stats .score-block .score .name {
 }
 span.left-guy {
-  color: #006064;
+  color: #006064
 }
 span.right-guy {
-  color: #283564;
+  color: #283564
 }
 .footer {
   text-align: center;
   height: 50px;
 }
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
   color: #000;
   padding: 0.2em 0;
 }
+
+body {
+  padding: 0;
+}
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
@@ -124,6 +134,7 @@ span.right-guy {
   padding-left: 15px;
   padding-right: 15px;
 }
+
 /* Custom page header */
 .header {
   border-bottom: 1px solid #e5e5e5;
@@ -136,15 +147,18 @@ span.right-guy {
   line-height: 40px;
   padding-bottom: 19px;
 }
+
 /* Custom page footer */
 .footer {
   padding-top: 19px;
   color: #777;
   border-top: 1px solid #e5e5e5;
 }
+
 .container-narrow > hr {
   margin: 30px 0;
 }
+
 /* Main marketing message and sign up button */
 .jumbotron {
   text-align: center;
@@ -154,6 +168,7 @@ span.right-guy {
   font-size: 21px;
   padding: 14px 24px;
 }
+
 /* Supporting marketing content */
 .marketing {
   margin: 40px 0;
@@ -163,36 +178,11 @@ span.right-guy {
 }
 
 /* Responsive: Portrait tablets and up */
-@media screen and (max-width: 768px) {
-  html,
-  body {
-    height: auto;
-    max-height: 999999999px;
-    overflow: visible;
-  }
-  .main-view .current-score {
-    min-height: 430px;
-  }
-  .main-view .stats {
-    min-height: 280px;
-  }
-  .main-view .stats .score-block h2 {
-    font-size: 16px;
-  }
-  .main-view .stats .score-block .score {
-    font-size: 16px;
-  }
-  .main-view .stats .score-block .score > * {
-    padding: 0;
-  }
-  .main-view .stats .score-block .score .points {
-    font-size: 22px;
-  }
-}
 @media screen and (min-width: 768px) {
   .container {
     max-width: 730px;
   }
+
   /* Remove the padding we set earlier */
   .header,
   .marketing,
@@ -207,10 +197,5 @@ span.right-guy {
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;
-  }
-}
-@media (max-width: 992px) {
-  .main-view .stats .score-block h2 {
-    font-size: 20px;
   }
 }
