@@ -9,6 +9,7 @@
  */
 angular.module('pingPongTableApp')
   .controller('MainCtrl', function ($scope, gameTypes, GameService) {
+
     $scope.player1 = 'IgorP';
     $scope.player2 = 'IvanP';
     var ranks = {};
@@ -29,6 +30,10 @@ angular.module('pingPongTableApp')
 
     $scope.addPoint = function (player) {
       $scope.gameStats = GameService.addPoint(player);
+    };
+
+    $scope.restartGame = function () {
+
     };
 
     $scope.startGame = function () {

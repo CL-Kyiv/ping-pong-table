@@ -37,9 +37,6 @@
         {{player2}}
       </div>
     </div>
-    <!--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 tip">-->
-    <!--A WIN FOR <span class="left-guy">{{player1}}</span> TAKES HIM TO RANK 3-->
-    <!--</div>-->
 
   </div>
   <div class="row">
@@ -86,6 +83,7 @@
         </div>
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <input class="btn" type="button" value="Start game" ng-click="startGame()" ng-disabled="readyToStart === false">
+          <input class="btn" type="button" value="Restart game" ng-click="restartGame()" ng-show="gameStats.winner">
         </div>
       </div>
     </div>
@@ -102,52 +100,9 @@
     </div>
   </div>
 
-  <!--<div class="row stats">-->
-  <!--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 headline"><h1>STATISTICS</h1></div>-->
-  <!--<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 score-block">-->
-  <!--<h2>LAST SCORE</h2>-->
-
-  <!--<div class="score clearfix">-->
-  <!--<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 points">9</div>-->
-  <!--<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">-</div>-->
-  <!--<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 points">11</div>-->
-  <!--<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5"><span class="left-guy">{{player1}}</span></div>-->
-  <!--<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>-->
-  <!--<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 right"><span class="right-guy">{{player2}}</span></div>-->
-  <!--</div>-->
-  <!--</div>-->
-  <!--<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 score-block">-->
-  <!--<h2>HEAD TO HEAD</h2>-->
-
-  <!--<div class="score clearfix">-->
-  <!--<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 points">22</div>-->
-  <!--<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 points">-</div>-->
-  <!--<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 points">23</div>-->
-  <!--<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5"><span class="left-guy">{{player1}}</span></div>-->
-  <!--<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>-->
-  <!--<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 right"><span class="right-guy">{{player2}}</span></div>-->
-  <!--</div>-->
-  <!--</div>-->
-  <!--<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 score-block">-->
-  <!--<h2>CURRENT RANKING</h2>-->
-
-  <!--<div class="score clearfix">-->
-  <!--<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 points">3</div>-->
-  <!--<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 points"></div>-->
-  <!--<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 points">4</div>-->
-  <!--<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5"><span class="left-guy">{{player1}}</span></div>-->
-  <!--<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>-->
-  <!--<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 right"><span class="right-guy">{{player2}}</span></div>-->
-  <!--</div>-->
-  <!--</div>-->
-  <!--</div>-->
 </div>
 <div class="container-fluid footer">
-  <!--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">-->
-  <!--<a class="btn btn-primary">RANKINGS</a>-->
-  <!--</div>-->
 </div>
-<!-- Your site ends -->
 
 <!-- build:js(.) scripts/vendor.js -->
 <!-- bower:js -->
