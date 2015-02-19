@@ -38,6 +38,7 @@ angular.module('pingPongTableApp')
         ranks: gameRanks,
         currentTurn: firsPlayer
       };
+      return gameStats;
     };
     var getNextPlayer = function (player) {
       return _.indexOf(gameStats.players, player) === 0 ? gameStats.players[1] : gameStats.players[0];
@@ -56,7 +57,7 @@ angular.module('pingPongTableApp')
         gameStats.turnNumber += 1;
         gameStats.ballNumber = 0;
       }
-      return false;
+      return gameStats;
     };
     var removePoint = function (player) {
       gameStats.ranks[player] -= 1;
