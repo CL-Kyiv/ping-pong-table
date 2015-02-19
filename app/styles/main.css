@@ -98,6 +98,9 @@ body {
   font-size: 46px;
   margin-bottom: 15px;
 }
+.winner {
+  color: red;
+}
 .disable {
   opacity: 0.5;
 }
