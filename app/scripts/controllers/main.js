@@ -11,8 +11,10 @@ angular.module('pingPongTableApp')
   .controller('MainCtrl', function ($scope, gameTypes, GameService) {
     $scope.player1 = 'IgorP';
     $scope.player2 = 'IvanP';
-    $scope.rank1 = $scope.rank2 = 0;
-
+    $scope.gameStats = {
+      rank1: 0,
+      rank2: 0
+    };
     $scope.gameTypes = gameTypes;
     $scope.readyToStart = false;
     $scope.gameIsStarted = false;
@@ -23,26 +25,31 @@ angular.module('pingPongTableApp')
     }, function (newVal) {
       $scope.readyToStart = newVal;
     });
+
+    $scope.addPoint = function(player) {
+      $scope.gameStats = GameService.addPoint(player);
+    };
+
     $scope.startGame = function () {
       var gameParams = {
         gameType: $scope.selectedGameType,
         players: [$scope.player1, $scope.player2],
         firstPlayer: $scope.firstPlayer
-    this.checkRank = function(player) {
-      var rank = player === 'player1' ? this.rank1 : this.rank2;
-      if(rank >= RANKFORWIN) {
-        this.winner = player === 'player1' ? this.player1 : this.player2;;
+
       }
-    }
-      }
-      GameService.startGame(gameParams);
+      $scope.gameStats = GameService.startGame(gameParams);
       $scope.gameIsStarted = true;
-      $scope.currentTurn = $scope.firstPlayer;
     }
-    $scope.clearAll = function () {
-      $scope.player1 = $scope.player2 = 'noname';
-      $scope.rank1 = $scope.rank2 = 0;
-    };
+    //$scope.clearAll = function () {
+    //  $scope.player1 = $scope.player2 = 'noname';
+    //  $scope.rank1 = $scope.rank2 = 0;
+    //};
+    //$scope.checkRank = function(player) {
+    //  var rank = player === 'player1' ? this.rank1 : this.rank2;
+    //  if(rank >= RANKFORWIN) {
+    //    this.winner = player === 'player1' ? this.player1 : this.player2;;
+    //  }
+    //}
     //$scope.save = function (player) {
     //  var playerState = {};
     //  playerState.name = player === 'player1' ? $scope.player1 : $scope.player2;
