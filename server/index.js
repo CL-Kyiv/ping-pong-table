@@ -1,15 +1,23 @@
 var express = require('express');
 
+var MongoClient = require('mongodb').MongoClient;
+var _ = require('lodash-node');
+
 var app = express();
 
-// marker for `grunt-express` to inject static folder/contents
-app.use(function staticsPlaceholder(req, res, next) {
-  return next();
+app.get('/', function (req, res) {
+  res.send('Hello World!');
 });
 
-// mock get data routes
 app.get('/hello/:who', function(req, res, next) {
-  return res.json({greeting: req.params.who});
+  return res.send('Hello '+  req.params.who);
 });
 
-module.exports = app;
+var server = app.listen(3000, function () {
+
+  var host = server.address().address;
+  var port = server.address().port;
+
+  console.log('Example app listening at http://%s:%s', host, port);
+
+});
