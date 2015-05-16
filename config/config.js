@@ -74,3 +74,9 @@ module.exports.getCSSAssets = function() {
 	var output = this.getGlobbedFiles(this.assets.lib.css.concat(this.assets.css), 'public/');
 	return output;
 };
+
+module.exports.facebook = {
+	clientID: '831963406889236',
+	clientSecret: '42de2e91e343207dea0eb2d827397c66',
+	callbackURL: '/auth/facebook/callback'
+};
